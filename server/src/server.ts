@@ -1,8 +1,9 @@
 import express from "express";
+import cors from "cors";
 import fs from "fs";
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 interface Flight {
   id: string;
@@ -15,6 +16,8 @@ interface Flight {
 interface FlightHistory {
   flights: Flight[];
 }
+
+app.use(cors());
 
 const jsonData = fs.readFileSync("./src/flightHistory.json", "utf8");
 const data: FlightHistory = JSON.parse(jsonData);
@@ -40,5 +43,5 @@ app.get("/flights/:id", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+  console.log(`Server running at http://localhost:${port}/flights`);
 });

@@ -1,38 +1,196 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background-color: #1A1A1A;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+    padding-bottom: 100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 43px;
 }
 
-.App-link {
-  color: #61dafb;
+.headerContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    gap: 12px;
+    font-family: Manrope-regular, sans-serif;
+    padding: 20px;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.headerContent span {
+    display: block;
+    height: 57.47px;
+    width: 197.43px;
+    background-image: url('../public/imgs/Group102.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.headerContent p {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    margin-top: 45px;
+}
+
+.mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 88%;
+    gap: 55px;
+    font-family: Sora-regular, sans-serif;
+}
+
+.mainContentText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mainContent h1 {
+    font-family: Sora-bold;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.mainContentDescription {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.allCards {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    font-family: Manrope-regular, sans-serif;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    background-color: #212121;
+    border-radius: 5px;
+    padding: 16px 24px 24px 24px;
+    border: 1px solid #444444;
+    cursor: pointer;
+}
+
+.column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 4px;
+}
+
+.aircraft * {
+    width: 100%;
+    text-align: start;
+}
+
+.aircraft h2 {
+    font-family: Manrope-semiBold, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.aircraft h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.route {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.routeTitle {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.routeLocal {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.routeLocal span {
+    height: 12px;
+    background-image: url('../public/imgs/Group91.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.routeLocal div {
+    display: flex;
+    justify-content: space-between;
+    width: 106.3px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.registration h4 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.registration p {
+    font-family: Manrope-semiBold, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.date h4 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.date p {
+    font-family: Manrope-semiBold, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.balance h4 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.balance p {
+    font-family: Manrope-semiBold, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
 }
