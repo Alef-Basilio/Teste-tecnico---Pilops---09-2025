@@ -15,11 +15,15 @@ body {
 }
 
 .header {
+    top: 0;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100vw;
     margin-top: 43px;
+    z-index: 2;
 }
 
 .headerContent {
@@ -57,11 +61,13 @@ main {
 }
 
 .mainContent {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
     width: 88%;
+    top: 0px;
     gap: 55px;
     font-family: Sora-regular, sans-serif;
 }
@@ -193,4 +199,161 @@ main {
     font-family: Manrope-semiBold, sans-serif;
     font-size: 16px;
     font-weight: 600;
+}
+
+.detailsScreen {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #1A1A1A;
+    z-index: 1;
+}
+
+.detailsScreenSpace {
+    position: relative;
+    top: 218.262px;
+    display: flex;
+    flex-direction: column;
+    width: 88%;
+    gap: 55px;
+}
+
+.detailsScreenClose {
+    display: flex;
+    font-family: Sora-bold, sans-serif;
+    height: fit-content;
+    width: fit-content;
+    font-size: 24px;
+    font-weight: 700;
+    gap: 18px;
+}
+
+.detailsScreenClose span {
+    height: 32px;
+    width: 32px;
+    background-image: url('../public/imgs/materialSymbolsArrowBackIos.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.detailsScreenClose button {
+    color: #fff;
+    font-family: Sora-bold, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    background: none;
+    border: none;
+}
+
+.detailsScreenContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.detailsScreenRewardSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #212121;
+    border-radius: 5px;
+    padding: 16px 24px 32px 24px;
+    border: 1px solid #444444;
+    cursor: pointer;
+    gap: 24px;
+}
+
+.detailsScreenRewardTitle {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    font-family: Sora-bold, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    gap: 8px;
+}
+
+.detailsScreenRewardTitle span {
+    height: 24px;
+    width: 24px;
+    background-image: url('../public/imgs/materialSymbolsTrophyOutline.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.detailsScreenRewardContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+.detailsScreenRewardColumn {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    font-family: Manrope-regular, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    gap: 12px;
+}
+
+.detailsScreenRewardColumn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.detailsScreenRewardColumn:nth-child(2) span {
+    background-image: url('../public/imgs/materialSymbolsStarShineOutlineRounded.svg');
+}
+
+.detailsScreenRewardColumn:nth-child(3) span {
+    background-image: url('../public/imgs/materialSymbolsAwardStarOutline.svg');
+}
+
+.detailsScreenRewardColumn div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detailsScreenRewardColumn:first-child div {
+    gap: 2px;
+}
+
+.detailsScreenRewardPrice {
+    color: #212121;
+    font-family: Manrope-semiBold, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #38BDF8;
+    border-radius: 170px;
+}
+
+.detailsScreenRewardColumn div p:last-child {
+    font-family: Sora-bold, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.open {
+    position: fixed;
+    display: flex;
+    justify-content: start;
+    width: 100vw;
 }
