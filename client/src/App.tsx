@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 import AllCards from './components/AllCards';
+import DetailsScreen from './components/DetailsScreen';
 
 function App() {
   interface Flight {
@@ -53,6 +54,7 @@ function App() {
           </div>
           <AllCards backendData={backendData}/>
         </div>
+        <DetailsScreen/>
       </main>
     </div>
   );

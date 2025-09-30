@@ -202,7 +202,8 @@ main {
 }
 
 .detailsScreen {
-    display: flex;
+    position: relative;
+    display: none;
     justify-content: start;
     align-items: center;
     flex-direction: column;

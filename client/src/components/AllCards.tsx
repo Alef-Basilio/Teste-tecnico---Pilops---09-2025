@@ -1,7 +1,8 @@
 "use client";
 
-import DetailsScreen from './DetailsScreen';
-import OpenDetailsScreen from "./OpenDetailsScreen";
+import Card from './Card';
+//import DetailsScreen from './DetailsScreen';
+//import OpenDetailsScreen from "./OpenDetailsScreen";
 
 interface Flight {
     id: string;
@@ -33,42 +34,13 @@ export default function AllCards ({ backendData }: AllCardsProps) {
         const data = backendData?.flights;
         return (
             <div className='allCards'>
-                {data.map((item, index) => (
-                    <div key={index} className='card' onClick={() => cardClicked(item, index)}>
-                        <div className='aircraft column'>
-                            <h2>{item.aircraft.name}</h2>
-                            <h3>{item.aircraft.airline}</h3>
-                        </div>
-                        <div className='route column'>
-                            <p className='routeTitle'>Trajeto</p>
-                            <div className='routeLocal'>
-                                <span></span>
-                                <div>
-                                    <p>{item.flightData.route.from}</p>
-                                    <p>{item.flightData.route.to}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='registration column'>
-                            <h4>Matrícula</h4>
-                            <p>{item.aircraft.registration}</p>
-                        </div>
-                        <div className='date column'>
-                            <h4>Data</h4>
-                            <p>{item.flightData.date}</p>
-                        </div>
-                        <div className='balance column'>
-                            <h4>Saldo</h4>
-                            <p>P$ {item.flightData.balance}</p>
-                        </div>
-                    </div>
-                ))}
+                <Card data={data}/>
             </div>
         );
     }
 };
 
-function cardClicked (item?: Flight | null | undefined, index?: number) {
-    DetailsScreen({ item, index });
-    OpenDetailsScreen();
-}
+/*function cardClicked (item?: Flight | null | undefined, index?: number) {
+    DetailsScreen();
+    OpenDetailsScreen({ item, index });
+}*/
