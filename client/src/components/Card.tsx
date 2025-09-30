@@ -1,9 +1,10 @@
 "use client";
 
-import ReactDOM from 'react-dom';
 import { JSX } from 'react';
 import DetailsScreen from './DetailsScreen';
 import OpenDetailsScreen from "./OpenDetailsScreen";
+import DateModify from './DateModify';
+import BalanceModify from './BalanceModify';
 
 interface Flight {
     id: string;
@@ -28,12 +29,12 @@ interface CardProps {
   data?: Flight[] | null | undefined;
 }
 
-export default function Card ({ data }: CardProps) {
-    const detailsScreenElement = (document.body.getElementsByClassName('detailsScreen')[0] as HTMLElement);
-    const detailsScreenCard = detailsScreenElement.getElementsByClassName('allCards')[0] as HTMLElement;
-    const cardElement = createDetailsCard();
-    ReactDOM.createRoot(detailsScreenCard).render(cardElement);
+function cardClicked (item?: Flight | null | undefined, index?: number) {
+    DetailsScreen({ item, index });
+    OpenDetailsScreen({ item, index });
+}
 
+function Card ({ data }: CardProps) {
     if (data === null || data === undefined) {
         return <p>Carregando...</p>;
     } else {
@@ -61,11 +62,11 @@ export default function Card ({ data }: CardProps) {
                         </div>
                         <div className='date column'>
                             <h4>Data</h4>
-                            <p>{item.flightData.date}</p>
+                            <p>{DateModify(item.flightData.date)}</p>
                         </div>
                         <div className='balance column'>
                             <h4>Saldo</h4>
-                            <p>P$ {item.flightData.balance}</p>
+                            <p>{BalanceModify(item.flightData.balance)}</p>
                         </div>
                     </div>
                 ))}
@@ -74,7 +75,7 @@ export default function Card ({ data }: CardProps) {
     }
 }
 
-function createDetailsCard (): JSX.Element {
+function CreateDetailsCard (): JSX.Element {
     return (
         <div className='card'>
             <div className='aircraft column'>
@@ -87,20 +88,16 @@ function createDetailsCard (): JSX.Element {
                     <span></span>
                     <div>
                         <p>Carregando...</p>
-                        <p>Carregando...</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
             <div className='registration column'>
                 <h4>Matrícula</h4>
-                <p></p>
+                <p>Carregando...</p>
             </div>
             <div className='date column'>
                 <h4>Data</h4>
-                <p>Carregando...</p>
-            </div>
-            <div className='balance column'>
-                <h4>Saldo</h4>
                 <p>Carregando...</p>
             </div>
         </div>
@@ -108,7 +105,4 @@ function createDetailsCard (): JSX.Element {
     
 }
 
-function cardClicked (item?: Flight | null | undefined, index?: number) {
-    DetailsScreen({ item, index });
-    OpenDetailsScreen({ item, index });
-}
+export { Card, CreateDetailsCard };

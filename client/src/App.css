@@ -352,6 +352,10 @@ main {
     font-weight: 700;
 }
 
+.detailsScreen .card {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .open {
     position: fixed;
     display: flex;

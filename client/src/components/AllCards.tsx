@@ -1,8 +1,6 @@
 "use client";
 
-import Card from './Card';
-//import DetailsScreen from './DetailsScreen';
-//import OpenDetailsScreen from "./OpenDetailsScreen";
+import { Card } from './Card';
 
 interface Flight {
     id: string;
@@ -39,8 +37,3 @@ export default function AllCards ({ backendData }: AllCardsProps) {
         );
     }
 };
-
-/*function cardClicked (item?: Flight | null | undefined, index?: number) {
-    DetailsScreen();
-    OpenDetailsScreen({ item, index });
-}*/

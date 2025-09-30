@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 import OpenDetailsScreen from "./OpenDetailsScreen";
-import Card from "./Card";
+import { CreateDetailsCard } from "./Card";
 
 interface Flight {
     id: string;
@@ -62,7 +62,7 @@ export default function DetailsScreen ({ item, index }: { item?: Flight | null |
                     </div>
                 </div>
                 <div className='allCards'>
-                    <Card data={item ? [item] : []}/>
+                    <CreateDetailsCard/>
                 </div>
             </div>
         </div>

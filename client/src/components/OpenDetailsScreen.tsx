@@ -1,5 +1,8 @@
 "use client";
 
+import DateModify from './DateModify';
+import BalanceModify from './BalanceModify';
+
 interface Flight {
     id: string;
     aircraft: {
@@ -17,6 +20,28 @@ interface Flight {
       xp: number;
       missionBonus: number;
     };
+}
+
+function childrenElements (element: HTMLElement, values: string[]) {
+    const children = element.children;
+
+    for (let i = 0; i < children.length; i++) {
+        const child = children[i] as HTMLElement;
+        child.innerHTML = values[i];
+    }
+}
+
+function changeDetailsScreenCard (item: Flight | null | undefined, card: HTMLElement) {
+    const aircraft = card.getElementsByClassName('aircraft')[0] as HTMLElement;
+    const routeLocalDiv = card.getElementsByClassName('routeLocal')[0].lastChild as HTMLElement;
+    const registration = card.getElementsByClassName('registration')[0] as HTMLElement;
+    const date = card.getElementsByClassName('date')[0] as HTMLElement;
+
+    childrenElements(aircraft, [String(item?.aircraft.name), String(item?.aircraft.airline)]);
+    childrenElements(routeLocalDiv, [String(item?.flightData.route.from), String(item?.flightData.route.to)]);
+    childrenElements(registration, ['Matrícula', String(item?.aircraft.registration)]);
+    childrenElements(date, ['Data', DateModify(String(item?.flightData.date))]);
+    BalanceModify(item?.flightData.balance);
 }
 
 export default function OpenDetailsScreen ({ item, index }: { item?: Flight | null | undefined, index?: number } = {}) {
@@ -52,29 +77,3 @@ export default function OpenDetailsScreen ({ item, index }: { item?: Flight | nu
     headerElement.classList.toggle('open');
     detailsScreenElement.classList.toggle('open');
 }
-
-function changeDetailsScreenCard (item: Flight | null | undefined, card: HTMLElement) {
-    const aircraft = card.getElementsByClassName('aircraft')[0] as HTMLElement;
-    /*const aircraft1 = card.getElementsByClassName('aircraft')[0].firstChild as HTMLElement;
-    const aircraft2 = card.getElementsByClassName('aircraft')[0].lastChild as HTMLElement;
-    const routeLocalDiv = card.getElementsByClassName('routeLocal')[0].lastChild as HTMLElement;
-    const registration = card.getElementsByClassName('registration')[0];
-    const date = card.getElementsByClassName('date')[0];
-    const balance = card.getElementsByClassName('balance')[0];*/
-
-    /*aircraft1.innerHTML = String(item?.aircraft.name);
-    aircraft2.innerHTML = String(item?.aircraft.airline);*/
-
-    console.log(card);
-
-    //childrenElements(aircraft, [String(item?.aircraft.name), String(item?.aircraft.airline)]);
-}
-
-/*function childrenElements (element: HTMLElement, [values]: string[] | number[]) {
-    const children = element.children;
-
-    for (let i = 0; i < children.length; i++) {
-        const child = children[i] as HTMLElement;
-        // Do something with each child element
-    }
-}*/
