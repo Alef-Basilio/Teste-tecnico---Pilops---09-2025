@@ -1,6 +1,6 @@
-import express from "express";
-import cors from "cors";
-import fs from "fs";
+import express from 'express';
+import cors from 'cors';
+import fs from 'fs';
 
 const app = express();
 const port = 5000;
@@ -17,26 +17,26 @@ interface FlightHistory {
   flights: Flight[];
 }
 
-app.use(cors());
-
-const jsonData = fs.readFileSync("./src/flightHistory.json", "utf8");
+const jsonData = fs.readFileSync('./src/flightHistory.json', 'utf8');
 const data: FlightHistory = JSON.parse(jsonData);
 
-app.get("/flights", (req, res) => {
+app.use(cors());
+
+app.get('/flights', (req, res) => {
     try {
         res.json(data);
     } catch (error) {
         console.error(error);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send('Internal Server Error');
     }
 });
 
-app.get("/flights/:id", (req, res) => {
+app.get('/flights/:id', (req, res) => {
   const id = req.params.id;
   const flight = data.flights.find((flight: Flight) => flight.id === id);
 
   if (flight === undefined) {
-    return res.status(404).send("Flight not found");
+    return res.status(404).send('Flight not found');
   } else {
     res.json(flight);
   }

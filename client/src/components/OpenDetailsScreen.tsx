@@ -1,41 +1,22 @@
-"use client";
-
+import { Flight } from '../types/Flight';
 import DateModify from './DateModify';
 import BalanceModify from './BalanceModify';
+import BonusModify from './BonusModify';
 
-interface Flight {
-    id: string;
-    aircraft: {
-      name: string;
-      registration: string;
-      airline: string;
-    };
-    flightData: {
-      date: string;
-      balance: number;
-      route: {
-        from: string;
-        to: string;
-      },
-      xp: number;
-      missionBonus: number;
-    };
-}
-
-function childrenElements (element: HTMLElement, values: string[]) {
-    const children = element.children;
+function childrenElements (element: HTMLElement, values: string[]): void {
+    const children: HTMLCollectionOf<Element> = element.children;
 
     for (let i = 0; i < children.length; i++) {
-        const child = children[i] as HTMLElement;
+        const child: HTMLElement = children[i] as HTMLElement;
         child.innerHTML = values[i];
     }
 }
 
-function changeDetailsScreenCard (item: Flight | null | undefined, card: HTMLElement) {
-    const aircraft = card.getElementsByClassName('aircraft')[0] as HTMLElement;
-    const routeLocalDiv = card.getElementsByClassName('routeLocal')[0].lastChild as HTMLElement;
-    const registration = card.getElementsByClassName('registration')[0] as HTMLElement;
-    const date = card.getElementsByClassName('date')[0] as HTMLElement;
+function changeDetailsScreenCard (item: Flight | null | undefined, card: HTMLElement): void {
+    const aircraft: HTMLElement = card.getElementsByClassName('aircraft')[0] as HTMLElement;
+    const routeLocalDiv: HTMLElement = card.getElementsByClassName('routeLocal')[0].lastChild as HTMLElement;
+    const registration: HTMLElement = card.getElementsByClassName('registration')[0] as HTMLElement;
+    const date: HTMLElement = card.getElementsByClassName('date')[0] as HTMLElement;
 
     childrenElements(aircraft, [String(item?.aircraft.name), String(item?.aircraft.airline)]);
     childrenElements(routeLocalDiv, [String(item?.flightData.route.from), String(item?.flightData.route.to)]);
@@ -44,15 +25,15 @@ function changeDetailsScreenCard (item: Flight | null | undefined, card: HTMLEle
     BalanceModify(item?.flightData.balance);
 }
 
-export default function OpenDetailsScreen ({ item, index }: { item?: Flight | null | undefined, index?: number } = {}) {
-    const headerElement = (document.body.getElementsByClassName('header')[0] as HTMLElement);
-    const mainElement = (document.body.getElementsByTagName('main')[0] as HTMLElement);
-    const mainContentElement = (document.body.getElementsByClassName('mainContent')[0] as HTMLElement);
-    const detailsScreenElement = (document.body.getElementsByClassName('detailsScreen')[0] as HTMLElement);
-    const detailsBalance = (document.getElementById('detailsBalance') as HTMLElement);
-    const detailsXp = (document.getElementById('detailsXp') as HTMLElement);
-    const detailsBonus = (document.getElementById('detailsBonus') as HTMLElement);
-    const detailsScreenCard = detailsScreenElement.getElementsByClassName('allCards')[0] as HTMLElement;
+export default function OpenDetailsScreen ({ item, index }: { item?: Flight | null | undefined, index?: number } = {}): void {
+    const headerElement: HTMLElement = (document.body.getElementsByClassName('header')[0] as HTMLElement);
+    const mainElement: HTMLElement = (document.body.getElementsByTagName('main')[0] as HTMLElement);
+    const mainContentElement: HTMLElement = (document.body.getElementsByClassName('mainContent')[0] as HTMLElement);
+    const detailsScreenElement: HTMLElement = (document.body.getElementsByClassName('detailsScreen')[0] as HTMLElement);
+    const detailsBalance: HTMLElement = (document.getElementById('detailsBalance') as HTMLElement);
+    const detailsXp: HTMLElement = (document.getElementById('detailsXp') as HTMLElement);
+    const detailsBonus: HTMLElement = (document.getElementById('detailsBonus') as HTMLElement);
+    const detailsScreenCard: HTMLElement = detailsScreenElement.getElementsByClassName('allCards')[0] as HTMLElement;
 
     if (headerElement.classList.contains('open')) {
         mainElement.style.marginTop = '45px';
@@ -63,7 +44,7 @@ export default function OpenDetailsScreen ({ item, index }: { item?: Flight | nu
     } else {
         detailsBalance.innerHTML = String(item?.flightData.balance);
         detailsXp.innerHTML = String(item?.flightData.xp);
-        detailsBonus.innerHTML = `${item?.flightData.missionBonus.toFixed(2)}%`;
+        detailsBonus.innerHTML = String(BonusModify(item?.flightData.missionBonus));
 
         changeDetailsScreenCard(item, detailsScreenCard);
 

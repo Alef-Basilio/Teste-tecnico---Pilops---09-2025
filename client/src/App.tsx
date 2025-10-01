@@ -1,45 +1,27 @@
-import { useEffect, useState } from 'react';
+import { JSX, useEffect, useState } from 'react';
+import { Flight } from './types/Flight';
+
 import './App.css';
 
 import AllCards from './components/AllCards';
 import DetailsScreen from './components/DetailsScreen';
 
-function App() {
-  interface Flight {
-    id: string;
-    aircraft: {
-      name: string;
-      registration: string;
-      airline: string;
-    };
-    flightData: {
-      date: string;
-      balance: number;
-      route: {
-        from: string;
-        to: string;
-      },
-      xp: number;
-      missionBonus: number;
-    };
-  }
-  
+function App(): JSX.Element {
   const [backendData, setBackendData] = useState<{ flights: Flight[] } | null | undefined>(undefined);
 
   useEffect(() => {
-  fetch('/flights', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
+    fetch('/flights', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     .then((response) => response.json())
     .then((data) => setBackendData(data));
-}, []);
+  }, []);
 
   return (
     <div className='app'>
-      <title>Pilops - Histórico de Voos</title>
       <header className='header'>
         <div className='headerContent'>
           <span></span>

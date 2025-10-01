@@ -1,3 +1,10 @@
+:root {
+    --font-primary-regular: Manrope-regular, sans-serif;
+    --font-primary-semiBold: Manrope-semiBold, sans-serif;
+    --font-secundary-regular: Sora-regular, sans-serif;
+    --font-secundary-bold: Sora-bold, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +39,7 @@ body {
     flex-direction: column;
     width: fit-content;
     gap: 12px;
-    font-family: Manrope-regular, sans-serif;
+    font-family: var(--font-primary-regular);
     padding: 20px;
     cursor: pointer;
 }
@@ -69,7 +76,7 @@ main {
     width: 88%;
     top: 0px;
     gap: 55px;
-    font-family: Sora-regular, sans-serif;
+    font-family: var(--font-secundary-regular);
 }
 
 .mainContentText {
@@ -79,7 +86,7 @@ main {
 }
 
 .mainContent h1 {
-    font-family: Sora-bold;
+    font-family: var(--font-secundary-bold);
     font-size: 24px;
     font-weight: 700;
 }
@@ -96,7 +103,7 @@ main {
     flex-direction: column;
     width: 100%;
     gap: 20px;
-    font-family: Manrope-regular, sans-serif;
+    font-family: var(--font-primary-regular);
 }
 
 .card {
@@ -126,7 +133,7 @@ main {
 }
 
 .aircraft h2 {
-    font-family: Manrope-semiBold, sans-serif;
+    font-family: var(--font-primary-semiBold);
     font-size: 16px;
     font-weight: 600;
 }
@@ -174,7 +181,7 @@ main {
 }
 
 .registration p {
-    font-family: Manrope-semiBold, sans-serif;
+    font-family: var(--font-primary-semiBold);
     font-size: 16px;
     font-weight: 600;
 }
@@ -185,7 +192,7 @@ main {
 }
 
 .date p {
-    font-family: Manrope-semiBold, sans-serif;
+    font-family: var(--font-primary-semiBold);
     font-size: 16px;
     font-weight: 600;
 }
@@ -196,7 +203,7 @@ main {
 }
 
 .balance p {
-    font-family: Manrope-semiBold, sans-serif;
+    font-family: var(--font-primary-semiBold);
     font-size: 16px;
     font-weight: 600;
 }
@@ -225,7 +232,7 @@ main {
 
 .detailsScreenClose {
     display: flex;
-    font-family: Sora-bold, sans-serif;
+    font-family: var(--font-secundary-bold);
     height: fit-content;
     width: fit-content;
     font-size: 24px;
@@ -244,7 +251,7 @@ main {
 
 .detailsScreenClose button {
     color: #fff;
-    font-family: Sora-bold, sans-serif;
+    font-family: var(--font-secundary-bold);
     font-size: 24px;
     font-weight: 700;
     background: none;
@@ -278,7 +285,7 @@ main {
     justify-content: start;
     align-items: center;
     width: 100%;
-    font-family: Sora-bold, sans-serif;
+    font-family: var(--font-secundary-bold);
     font-size: 18px;
     font-weight: 700;
     gap: 8px;
@@ -303,7 +310,7 @@ main {
     justify-content: start;
     align-items: center;
     width: 100%;
-    font-family: Manrope-regular, sans-serif;
+    font-family: var(--font-primary-regular);
     font-size: 14px;
     font-weight: 400;
     gap: 12px;
@@ -339,7 +346,7 @@ main {
 
 .detailsScreenRewardPrice {
     color: #212121;
-    font-family: Manrope-semiBold, sans-serif;
+    font-family: var(--font-primary-semiBold);
     font-size: 16px;
     font-weight: 600;
     background-color: #38BDF8;
@@ -347,7 +354,7 @@ main {
 }
 
 .detailsScreenRewardColumn div p:last-child {
-    font-family: Sora-bold, sans-serif;
+    font-family: var(--font-secundary-bold);
     font-size: 32px;
     font-weight: 700;
 }

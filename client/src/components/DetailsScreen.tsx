@@ -1,28 +1,9 @@
-'use client';
-
+import { Flight } from '../types/Flight';
+import { JSX } from 'react';
 import OpenDetailsScreen from "./OpenDetailsScreen";
 import { CreateDetailsCard } from "./Card";
 
-interface Flight {
-    id: string;
-    aircraft: {
-      name: string;
-      registration: string;
-      airline: string;
-    };
-    flightData: {
-      date: string;
-      balance: number;
-      route: {
-        from: string;
-        to: string;
-      },
-      xp: number;
-      missionBonus: number;
-    };
-}
-
-export default function DetailsScreen ({ item, index }: { item?: Flight | null | undefined, index?: number } = {}) {
+export default function DetailsScreen ({ item, index }: { item?: Flight | null | undefined, index?: number } = {}): JSX.Element {
     return (
         <div className='detailsScreen'>
             <div className='detailsScreenSpace'>
