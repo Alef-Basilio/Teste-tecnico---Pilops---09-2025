@@ -27,22 +27,15 @@ function App(): JSX.Element {
 
   useEffect(() => {
     fetchFlights();
-
-    const interval = setInterval(fetchFlights, 3000);
-    
-    if (isReady) {
-      return () => clearInterval(interval);
-    }
-  }, []);
+  }, [isReady]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    setTimeout(() => {
       if (!isReady) {
         setIsReady(true);
       }
     }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+  }, [!isReady]);
 
   return (
     <div className='app'>
