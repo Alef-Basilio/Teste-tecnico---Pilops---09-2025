@@ -31,7 +31,7 @@ const data: FlightHistory = JSON.parse(jsonData);
 
 app.use(cors());
 
-app.get('/flights', (req, res) => {
+app.get('/flights', async (req, res) => {
     try {
         res.json(data);
     } catch (error) {
@@ -40,7 +40,7 @@ app.get('/flights', (req, res) => {
     }
 });
 
-app.get('/flights/:id', (req, res) => {
+app.get('/flights/:id', async (req, res) => {
   const id = req.params.id;
   const flight = data.flights.find((flight: Flight) => flight.id === id);
 
