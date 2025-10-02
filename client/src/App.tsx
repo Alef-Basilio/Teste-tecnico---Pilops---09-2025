@@ -1,13 +1,14 @@
-import { JSX, useEffect, useState } from 'react';
+import { JSX, useEffect, useState, Suspense, lazy } from 'react';
 import { Flight } from './types/Flight';
 
 import './App.css';
 
-import AllCards from './components/AllCards';
 import DetailsScreen from './components/DetailsScreen';
+const AllCards = lazy(() => import('./components/AllCards'));
 
 function App(): JSX.Element {
   const [backendData, setBackendData] = useState<{ flights: Flight[] } | null | undefined>(undefined);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     fetch('/flights', {
@@ -17,7 +18,18 @@ function App(): JSX.Element {
       },
     })
     .then((response) => response.json())
-    .then((data) => setBackendData(data));
+    .then((data) => setBackendData(data))
+    .catch((error) => {
+      console.error(error) 
+      setBackendData(null);
+    });
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -29,14 +41,20 @@ function App(): JSX.Element {
         </div>
       </header>
       <main>
-        <div className='mainContent'>
-          <div className='mainContentText'>
-            <h1>Histórico de Voos</h1>
-            <p className='mainContentDescription'>Visualize seu histórico completo de voos realizados</p>
+          <div className='mainContent'>
+            <div className='mainContentText'>
+              <h1>Histórico de Voos</h1>
+              <p className='mainContentDescription'>Visualize seu histórico completo de voos realizados</p>
+            </div>
+            <Suspense fallback={<p>Carregando...</p>}>
+              {isReady ? (
+                <AllCards backendData={backendData}/>
+              ): (
+                null
+              )}
+            </Suspense>
           </div>
-          <AllCards backendData={backendData}/>
-        </div>
-        <DetailsScreen/>
+          <DetailsScreen/>
       </main>
     </div>
   );

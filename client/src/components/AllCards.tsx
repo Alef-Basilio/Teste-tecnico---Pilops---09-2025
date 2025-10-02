@@ -7,15 +7,11 @@ interface AllCardsProps {
 }
 
 export default function AllCards ({ backendData }: AllCardsProps): JSX.Element {
-    if (backendData === null || backendData === undefined) {
-        return <p>Carregando...</p>
-    } else {
-        const data: Flight[] = backendData.flights;
-        
-        return (
-            <div className='allCards'>
-                <Card data={data}/>
-            </div>
-        );
-    }
+    const data: Flight[] | undefined = backendData?.flights;
+    
+    return (
+        <div className='allCards'>
+            <Card data={data}/>
+        </div>
+    );
 };

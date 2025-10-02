@@ -34,18 +34,20 @@ export default function BalanceModify (balance: number | undefined): string {
     const balanceElement: HTMLCollection = (document.getElementsByClassName('balance') as HTMLCollectionOf<HTMLElement>);
     const balancePElement: HTMLElement = (document.getElementsByClassName('detailsScreenRewardColumn') as HTMLCollectionOf<HTMLElement>)[0];
     const detailsBalance: HTMLElement = (document.getElementById('detailsBalance') as HTMLElement);
-    
-    for (let i = 0; i < balanceElement.length; i++) {
-        const balanceElementChild: HTMLElement = balanceElement[i].lastChild as HTMLElement;
 
-        if (!balanceElementChild.textContent?.includes('-')) {
-            balanceElementChild.style.color = '#00FF88';
-        } else {
-            balanceElementChild.style.color = '#FF0000';
+    setTimeout(() => {
+        for (let i = 0; i < balanceElement.length; i++) {
+            const balanceElementChild: HTMLElement = balanceElement[i].lastChild as HTMLElement;
+
+            if (!balanceElementChild.textContent?.includes('-')) {
+                balanceElementChild.style.color = '#00FF88';
+            } else {
+                balanceElementChild.style.color = '#FF0000';
+            }
+
+            addDecimal(balanceElementChild);
         }
-
-        addDecimal(balanceElementChild);
-    }
+    }, 500);
 
     if (balance !== undefined && balancePElement.lastChild && balancePElement.lastChild.firstChild) {
         if (balance > 0) {
