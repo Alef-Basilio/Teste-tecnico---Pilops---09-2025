@@ -10,7 +10,7 @@ function App(): JSX.Element {
   const [backendData, setBackendData] = useState<{ flights: Flight[] } | null | undefined>(undefined);
   const [isReady, setIsReady] = useState(false);
 
-  setInterval(() => {
+  /*setInterval(() => {
     useEffect(() => {
       fetch('/flights', {
         method: 'GET',
@@ -25,7 +25,28 @@ function App(): JSX.Element {
         setBackendData(null);
       });
     }, []);
-  }, 2000);
+  }, 2000);*/
+
+  const fetchFlights = () => {
+    fetch('/flights', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setBackendData(data))
+      .catch((error) => {
+        console.error(error);
+        setBackendData(null);
+      });
+  };
+
+  useEffect(() => {
+    fetchFlights();
+    const interval = setInterval(fetchFlights, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
