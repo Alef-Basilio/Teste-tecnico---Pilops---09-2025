@@ -10,20 +10,22 @@ function App(): JSX.Element {
   const [backendData, setBackendData] = useState<{ flights: Flight[] } | null | undefined>(undefined);
   const [isReady, setIsReady] = useState(false);
 
-  useEffect(() => {
-    fetch('/flights', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    .then((response) => response.json())
-    .then((data) => setBackendData(data))
-    .catch((error) => {
-      console.error(error) 
-      setBackendData(null);
-    });
-  }, []);
+  setInterval(() => {
+    useEffect(() => {
+      fetch('/flights', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => setBackendData(data))
+      .catch((error) => {
+        console.error(error) 
+        setBackendData(null);
+      });
+    }, []);
+  }, 2000);
 
   useEffect(() => {
     const timer = setTimeout(() => {
