@@ -32,10 +32,9 @@ Tópicos:
 
 
 <p align="center">
-<b>Um desafio técnico para vaga de Engenheiro(a) de software fullstack (estágio/Júnior) com 7 dias a partir do 
-recebimento do teste de prazo.</b>
+<b>Um desafio técnico para vaga de Engenheiro(a) de software fullstack (estágio/Júnior) com 7 dias de prazo.</b>
 </br>
-<b>!Algumas coisas poderiam ter sido diferentes caso eu pudesse tirar dúvidas de template! Houve a minha 
+<b>Algumas coisas poderiam ter sido diferentes caso eu pudesse tirar dúvidas de template! Houve a minha 
 interpretação do design.</b>
 </p>
 
@@ -87,4 +86,5 @@ Caso queira usar a versão build, estando no diretório "client", talvez seja pr
 (npm install -g serve) e então o comando "serve -s build".
 </br>
 </br>
-Se for preciso baixar dependências, recomendo o comando "npm list --depth=0" (ou "yarn list --depth=0") em ambos os diretórios conforme as suas versões.
+Se for preciso baixar dependências, recomendo o comando "npm list --depth=0" (ou "yarn list --depth=0") para
+verificar quais são em ambos os diretórios conforme as suas versões.
