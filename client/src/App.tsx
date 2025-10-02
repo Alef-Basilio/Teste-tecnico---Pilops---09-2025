@@ -4,14 +4,15 @@ import { Flight } from './types/Flight';
 import './App.css';
 
 import DetailsScreen from './components/DetailsScreen';
-const AllCards = lazy(() => import('./components/AllCards'));
+//const AllCards = lazy(() => import('./components/AllCards'));
+import AllCards from './components/AllCards';
 
 function App(): JSX.Element {
   const [backendData, setBackendData] = useState<{ flights: Flight[] } | null | undefined>(undefined);
   const [isReady, setIsReady] = useState(false);
 
   const fetchFlights = () => {
-    fetch('/flights', {
+    fetch('http://localhost:5000/flights', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -21,21 +22,30 @@ function App(): JSX.Element {
       .then((data) => setBackendData(data))
       .catch((error) => {
         console.error(error);
-        setBackendData(null);
+        //setBackendData(null);
       });
   };
+  //fetchFlights();
+
+  /*setTimeout(() => {
+    console.log('1');
+    fetchFlights();
+  }, 1000);*/
 
   useEffect(() => {
+    console.log(isReady + '1');
     fetchFlights();
   }, [isReady]);
 
   useEffect(() => {
-    setTimeout(() => {
+    console.log(isReady + '2');
+    setInterval(() => {
+    console.log(isReady + '3');
       if (!isReady) {
         setIsReady(true);
       }
     }, 1000);
-  }, [!isReady]);
+  }, []);
 
   return (
     <div className='app'>
@@ -51,13 +61,7 @@ function App(): JSX.Element {
               <h1>Histórico de Voos</h1>
               <p className='mainContentDescription'>Visualize seu histórico completo de voos realizados</p>
             </div>
-            <Suspense fallback={<p>Carregando...</p>}>
-              {isReady ? (
                 <AllCards backendData={backendData}/>
-              ): (
-                null
-              )}
-            </Suspense>
           </div>
           <DetailsScreen/>
       </main>
