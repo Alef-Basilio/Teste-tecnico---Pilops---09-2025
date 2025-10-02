@@ -47,7 +47,7 @@ interpretação do design.</b>
 
 
 <h2 id="tech" align="center">Tecnologias</h2>
-Node.js, Express.js, React, TypeScript, HTML and CSS.
+Node.js, Express.js, React, TypeScript, HTML e CSS.
 
 
 <h2 id="howMade" align="center">Como foi feito</h2>
