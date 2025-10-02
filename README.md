@@ -83,7 +83,7 @@ Primeiramente, estando no diretório "server", execute o comando "npm run dev" o
 Segundamente, estando no diretório "client", execute o comando "npm start" ou "yarn start".
 </br>
 Caso queira usar a versão build, estando no diretório "client", talvez seja preciso instalar o 'serve'
-(npm install -g serve) e então o comando "serve -s build".
+(npm install -g serve), executar o "npm run build" ou "yarn build" e então o comando "serve -s build".
 </br>
 </br>
 Se for preciso baixar dependências, recomendo o comando "npm list --depth=0" (ou "yarn list --depth=0") para
