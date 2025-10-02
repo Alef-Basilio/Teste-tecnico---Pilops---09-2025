@@ -1,9 +1,22 @@
-<h2 align="center">Link do deploy:</h2>
+<h2 align="center">Como acessar o deploy rodando o back-end:</h2>
+Primeiro acesse a API para que o site Render possa "ativar" o back-end:
+</br>
 
-@[Pilops]()
+@[Back-end](https://teste-tecnico-pilops-rugl.onrender.com/flights)
 
 ```
+https://teste-tecnico-pilops-rugl.onrender.com/flights
+```
+Caso seja o seu primeiro acesso no dia à API, isto pode levar vários minutos.
+</br>
 
+Após ser possível acessar o JSON do back-end acima, acesse o front-end em seguida:
+</br>
+
+@[Pilops](https://teste-tecnico-pilops-09-2025.vercel.app/)
+
+```
+https://teste-tecnico-pilops-09-2025.vercel.app/
 ```
 
 
@@ -21,6 +34,7 @@ Tópicos:
 <p align="center">
 <b>Um desafio técnico para vaga de Engenheiro(a) de software fullstack (estágio/Júnior) com 7 dias a partir do 
 recebimento do teste de prazo.</b>
+</br>
 <b>!Algumas coisas poderiam ter sido diferentes caso eu pudesse tirar dúvidas de template! Houve a minha 
 interpretação do design.</b>
 </p>
@@ -66,6 +80,11 @@ Estes são os que eu considero os mais críticos, porém não os únicos.
 
 <h2 id="howRun" align="center">Como rodar o front-end e back-end</h2>
 Primeiramente, estando no diretório "server", execute o comando "npm run dev" ou "yarn dev".
+</br>
 Segundamente, estando no diretório "client", execute o comando "npm start" ou "yarn start".
-
+</br>
+Caso queira usar a versão build, estando no diretório "client", talvez seja preciso instalar o 'serve'
+(npm install -g serve) e então o comando "serve -s build".
+</br>
+</br>
 Se for preciso baixar dependências, recomendo o comando "npm list --depth=0" (ou "yarn list --depth=0") em ambos os diretórios conforme as suas versões.
