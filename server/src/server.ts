@@ -5,15 +5,6 @@ import fs from 'fs';
 const app = express();
 const port = 5000;
 
-app.use(express.json());
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin");
-    
-    next();
-});
-
 interface Flight {
   id: string;
   aircraft: string;
@@ -29,14 +20,23 @@ interface FlightHistory {
 const jsonData = fs.readFileSync('./src/flightHistory.json', 'utf8');
 const data: FlightHistory = JSON.parse(jsonData);
 
+app.use(express.json());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin');
+    
+    next();
+});
+
 app.use(cors());
 
 app.get('/flights', async (req, res) => {
     try {
-        res.json(data);
+      res.json(data);
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal Server Error');
+      console.error(error);
+      res.status(500).send('Internal Server Error');
     }
 });
 

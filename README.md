@@ -27,7 +27,7 @@ Tópicos:
 <a href="#howMade">Como foi feito</a> |
 <a href="#obj">Objetivo</a> |
 <a href="#if">Se eu tivesse mais tempo</a> |
-<a href="#howRun">Como rodar o front-end e back-end</a>
+<a href="#howRun">Como rodar o front-end e back-end localmente</a>
 </p>
 
 
@@ -66,13 +66,14 @@ Implementar as melhores soluções de performance e escalabilidade em adequaçã
 
 
 <h2 id="if" align="center">Se eu tivesse mais tempo</h2>
-Primeiro eu mudaria a ordem dos cards para que fossem do mais recentes ao mais antigos em relação às datas.
+Primeiro eu mudaria a ordem dos cards para que fossem dos mais recentes aos mais antigos em relação às datas- de cima
+para baixo.
 </br>
 Também aperfeiçoaria o componente que altera o saldo, especificamente a solução de adicionar os pontos (".") para que fosse mais adaptável independente dos valores.
 </br>
 Como foquei nos itens obrigatórios do teste, certamente complementaria com os itens opcionais posteriormente: testes unitários, paginação da lista de voos, endpoint para calcular o saldo total acumulado dos voos etc.
 </br>
-Por causa da quantidade de cards, penso que um botão para o topo seria algo bom de acrescentar, além de atualizar a página ao clicar no logo, mas mantendo o posicionamento vertical do usuário e a tela de detalhes do voo caso fizessem sentido.
+Por causa da quantidade de cards, penso que um botão para o topo seria algo bom de acrescentar, além de atualizar a página ao clicar no logo, mas mantendo o posicionamento vertical do usuário e a tela de detalhes do voo caso estes fizessem sentido.
 </br>
 Estes são os que eu considero os mais críticos, porém não os únicos.
 

@@ -31,11 +31,9 @@ function App(): JSX.Element {
 
   useEffect(() => {
     setInterval(() => {
-      if (!isReady) {
-        setIsReady(true);
-      }
+      setIsReady(true);
     }, 1000);
-  }, []);
+  }, [!isReady]);
 
   return (
     <div className='app'>
