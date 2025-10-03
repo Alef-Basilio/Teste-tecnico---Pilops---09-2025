@@ -51,6 +51,8 @@ Node.js, Express.js, React, TypeScript, HTML e CSS.
 
 
 <h2 id="howMade" align="center">Como foi feito</h2>
+Escolhi uma arquitetura com o client e server no mesmo diretório por se tratar de uma aplicação simples.
+</br>
 Utilizando modelos Figma fornecidos pela Pilops, construí uma interface com um front-end que exibe os dados de uma API e um back-end que os disponibiliza.
 </br>
 O mais essencial foi a atenção aos detalhes de cada elemento na tela, incluindo: fontes, tamanhos, disposição, 
