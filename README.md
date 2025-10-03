@@ -77,7 +77,9 @@ Por causa da quantidade de cards, penso que um botão para o topo seria algo bom
 Estes são os que eu considero os mais críticos, porém não os únicos.
 
 
-<h2 id="howRun" align="center">Como rodar o front-end e back-end</h2>
+<h2 id="howRun" align="center">Como rodar o front-end e back-end localmente</h2>
+Substitua a rota do fetch no App.tsx por "http://localhost:5000/flights".
+</br>
 Primeiramente, estando no diretório "server", execute o comando "npm run dev" ou "yarn dev".
 </br>
 Segundamente, estando no diretório "client", execute o comando "npm start" ou "yarn start".
